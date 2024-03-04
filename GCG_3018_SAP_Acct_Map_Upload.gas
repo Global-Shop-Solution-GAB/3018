@@ -1,0 +1,175 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.File.Define("Rev_Acct",String,Rev_Acct)
+Variable.UDT.File.Define("SPI_GL_Acct",String,SPI_GL_Acct)
+Variable.UDT.File.Define("GSS_GL_Acct",String,GSS_GL_Acct)
+Variable.UDT.File.Define("Description",String,Description)
+Variable.UDT.File.Define("SPI_Profit_Cntr",String,SPI_Profit_Cntr)
+Variable.UDT.File.Define("SPI_Cost_Cntr",String,SPI_Cost_Cntr)
+Variable.UDT.File.Define("SPI_Order",String,SPI_Order)
+Variable.UDT.File.Define("Trading_Partner",String,Trading_Partner)
+Variable.UDT.File.Define("Partner_Profit_Cntr",String,Partner_Profit_Cntr)
+Variable.UDT.File.Define("Dev_Code",String,Development_Code)
+Variable.UDT.File.Define("MOZ_GL_Acct",String,MOZ_GL_Acct)
+Variable.UDT.File.Define("MOZ_Profit_Cntr",String,MOZ_Profit_Cntr)
+Variable.UDT.File.Define("MOZ_Cost_Cntr",String,MOZ_Cost_Cntr)
+Variable.uGlobal.uFile.Declare("File")
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+F.ODBC.Connection!ConA.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.CallSub(Selectfile)
+F.Intrinsic.UI.InvokeWaitDialog("Loading Data.")
+F.Intrinsic.Control.CallSub(Loadfile,"FILE",V.Args.FILE)
+F.Intrinsic.Control.CallSub(Unload)
+
+Program.Sub.Main.End
+
+Program.Sub.selectFile.Start
+
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.ShowOpenFileDialog("","Excel Files|*.xls;*.xlsx","",V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+	F.Intrinsic.Control.CallSub(Unload)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("FILE",V.Local.sRet)
+
+Program.Sub.selectFile.End
+
+Program.Sub.loadFile.Start
+
+V.Local.sRet.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.sLeft.Declare(String)
+V.Local.iFor.Declare(Long)
+V.Local.sErrorLog.Declare(String)
+V.Local.sErrorTxt.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sHold.Declare(String)
+V.Local.ioHndl.Declare(Long)
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\SAP Upload Errors.txt",V.Local.sErrorLog)
+F.Automation.MSExcel.ReadSpreadsheet(V.Args.FILE,V.Local.sRet)
+
+' just going to read first sheet
+F.Intrinsic.String.Split(V.Local.sRet,"&^&",V.Local.sRet)
+
+' could have random header information.  need to strip all that out
+F.Intrinsic.String.Instr(V.Local.sRet(0),"Notes",V.Local.iRet)
+F.Intrinsic.Math.Add(V.Local.iRet,7,V.Local.iRet)
+F.Intrinsic.String.Left(V.Local.sRet(0),V.Local.iRet,V.Local.sLeft)
+F.Intrinsic.String.Replace(V.Local.sRet(0),V.Local.sLeft,"",V.Local.sRet(0))
+
+' get string to a udt
+f.Intrinsic.Variable.LoadUDTFromString(v.uGlobal.uFile,"GSS_GL_Acct*!*Description*!*Rev_Acct*!*SPI_GL_Acct*!*SPI_Profit_Cntr*!*SPI_Cost_Cntr*!*SPI_Order*!*Trading_Partner*!*Partner_Profit_Cntr*!*Dev_Code*!*MOZ_GL_Acct*!*MOZ_Profit_Cntr*!*MOZ_Cost_Cntr",v.Local.sRet(0),"$!$","*!*",false)
+
+' something isn't working for the straight "save udt to recordset", so going to set each records separately
+F.Intrinsic.Control.For(V.Local.iFor,V.uGlobal.uFile!GSS_GL_Acct.LBound,V.uGlobal.uFile!GSS_GL_Acct.UBound,1)
+	F.Intrinsic.Control.If(V.uGlobal.uFile(V.Local.iFor)!GSS_GL_Acct,=,"")
+		F.Intrinsic.Control.ExitFor(V.Local.iFor)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.CallSub(Savetotable,"REC",V.Local.iFor)
+
+	' if there was something wrong with the data being written tothe table, it would have errored.  write the reocord to the error log
+	F.Intrinsic.Control.If(V.Args.RET,=,"BAD")
+
+
+		F.Intrinsic.String.Concat("Invalid Data",V.Ambient.Tab,V.Ambient.Tab,V.Ambient.Tab,V.uGlobal.uFile(v.Local.iFor)!GSS_GL_Acct,V.Ambient.Tab,V.uGlobal.uFile(v.Local.iFor)!SPI_GL_Acct,V.Ambient.Tab,V.uGlobal.uFile(v.Local.iFor)!MOZ_GL_Acct,V.Local.sHold)
+		F.Intrinsic.String.Concat(V.Local.sErrorTxt,V.Ambient.NewLine,V.Local.sHold,V.Local.sErrorTxt)
+
+	' if a record already exists for the GSS GL Acct, it won't be overwritten.  write the record to the error log
+	F.Intrinsic.Control.elseIf(V.Args.RET,=,"DUPLICATE")
+		F.Intrinsic.String.Concat("Duplicate GSS GL Record",V.Ambient.Tab,V.Ambient.Tab,V.uGlobal.uFile(v.Local.iFor)!GSS_GL_Acct,V.Ambient.Tab,V.uGlobal.uFile(v.Local.iFor)!SPI_GL_Acct,V.Ambient.Tab,V.uGlobal.uFile(v.Local.iFor)!MOZ_GL_Acct,V.Local.sHold)
+		F.Intrinsic.String.Concat(V.Local.sErrorTxt,V.Ambient.NewLine,V.Local.sHold,V.Local.sErrorTxt)
+
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iFor)
+
+F.Intrinsic.UI.CloseWaitDialog
+' if there were errors, notify the user, and open the error log
+F.Intrinsic.Control.If(V.Local.sErrorTxt.Trim,<>,"")
+	F.Intrinsic.String.Concat(V.Ambient.Tab,V.Ambient.Tab,V.Ambient.Tab,V.Ambient.Tab,V.Ambient.Tab,"Upload Errors",V.Ambient.NewLine,V.Ambient.NewLine,"Reason",V.Ambient.Tab,V.Ambient.Tab,V.Ambient.Tab,V.Ambient.Tab,"GSS GL Account",V.Ambient.Tab,"SPI GL Acct",V.Ambient.Tab,"Mozard GL Acct",V.Local.sErrorTxt,V.Local.sErrorTxt)
+	F.Intrinsic.File.String2File(V.Local.sErrorLog,V.Local.sErrorTxt)
+	F.Intrinsic.UI.Msgbox("Error occured during load.  Please review error log")
+	f.Intrinsic.Task.ShellExec(v.Local.iHndl,"OPEN",v.Local.sErrorLog,"","",1)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.loadFile.End
+
+Program.Sub.Unload.Start
+
+F.ODBC.Connection!ConA.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+Program.Sub.saveToTable.Start
+
+F.Intrinsic.Control.SetErrorHandler("saveToTable_Err")
+F.Intrinsic.Control.ClearErrors
+
+'F.Intrinsic.UI.Msgbox(V.Ambient.ErrorNumber)
+
+V.Local.sError.Declare(String)
+V.Local.sSel.Declare(String)
+
+F.Intrinsic.String.Concat("select * from GCG_3018_SAPAcctMap where GSS_GL_ACct ='",V.uGlobal.uFile(v.Args.REC.Long)!GSS_GL_Acct,"' ",V.Local.sSel)
+F.ODBC.Connection!ConA.OpenRecordsetRW("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.ConA!rstSel.EOF,=,True)
+		F.ODBC.ConA!rstSel.AddNew
+		F.ODBC.ConA!rstSel.Set!GSS_GL_Acct(V.uGlobal.uFile(v.Args.REC.Long)!GSS_GL_Acct)
+		F.ODBC.ConA!rstSel.Set!Description(V.uGlobal.uFile(v.Args.REC.Long)!Description)
+		F.ODBC.ConA!rstSel.Set!SPI_GL_Acct(V.uGlobal.uFile(v.Args.REC.Long)!SPI_GL_Acct)
+		F.ODBC.ConA!rstSel.Set!SPI_Profit_Cntr(V.uGlobal.uFile(v.Args.REC.Long)!SPI_Profit_Cntr)
+		F.ODBC.ConA!rstSel.Set!SPI_Cost_Cntr(V.uGlobal.uFile(v.Args.REC.Long)!SPI_Cost_Cntr)
+		F.ODBC.ConA!rstSel.Set!SPI_Order(V.uGlobal.uFile(v.Args.REC.Long)!SPI_Order)
+		F.ODBC.ConA!rstSel.Set!MOZ_GL_Acct(V.uGlobal.uFile(v.Args.REC.Long)!MOZ_GL_Acct)
+		F.ODBC.ConA!rstSel.Set!MOZ_Profit_Cntr(V.uGlobal.uFile(v.Args.REC.Long)!MOZ_Profit_Cntr)
+		F.ODBC.ConA!rstSel.Set!MOZ_Cost_Cntr(V.uGlobal.uFile(v.Args.REC.Long)!MOZ_Cost_Cntr)
+		F.ODBC.ConA!rstSel.Set!Rev_Acct(V.uGlobal.uFile(v.Args.REC.Long)!Rev_Acct)
+		F.ODBC.ConA!rstSel.Set!Trading_Partner(V.uGlobal.uFile(v.Args.REC.Long)!Trading_Partner)
+		F.ODBC.ConA!rstSel.Set!Partner_Profit_Cntr(V.uGlobal.uFile(v.Args.REC.Long)!Partner_Profit_Cntr)
+		F.ODBC.ConA!rstSel.Set!Development_Code(V.uGlobal.uFile(v.Args.REC.Long)!Dev_Code)
+		F.ODBC.ConA!rstSel.Update
+		F.Intrinsic.Variable.AddRV("RET","")
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Variable.AddRV("RET","DUPLICATE")
+
+	F.Intrinsic.Control.EndIf
+
+F.ODBC.ConA!rstSel.Close
+
+
+F.Intrinsic.Control.ExitSub
+
+
+F.Intrinsic.Control.Label("saveToTable_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	'F.Intrinsic.Control.ClearErrors
+'	F.ODBC.ConA!rstSel.Close
+	F.ODBC.Connection!ConA.CloseRecordsets
+	F.Intrinsic.Variable.AddRV("RET","BAD")
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.saveToTable.End
+
+
+
+
+Program.Sub.Comments.Start
+${$0$}$GCG_SAP_Acct_Map$}$JCT$}$7/16/2013$}$False
+${$3$}$0$}$$}$-1$}$-1$}$$}$1/1/1900$}$for Siemens Industry Quote 4707-1
+Maintenance prgm that allows Create, Modify and Delete functionality for assigning specific SAP required info in relation to the GSS GL Account number.
+Custom Hook/Menu item
+Program.Sub.Comments.End
