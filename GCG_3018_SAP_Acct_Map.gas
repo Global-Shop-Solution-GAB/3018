@@ -1,0 +1,782 @@
+Program.Sub.ScreenSU.Start
+
+Gui.SS_Form1..Create
+Gui.SS_Form1..Caption("GSS SAP Account Map")
+Gui.SS_Form1..Size(7035,8880)
+Gui.SS_Form1..Position(0,0)
+Gui.SS_Form1..AlwaysOnTop(False)
+Gui.SS_Form1..FontName("Arial")
+Gui.SS_Form1..FontSize(8)
+Gui.SS_Form1..ForeColor(0)
+Gui.SS_Form1..Backcolor(-2147483633)
+Gui.SS_Form1..ControlBox(True)
+Gui.SS_Form1..MaxButton(False)
+Gui.SS_Form1..MinButton(False)
+Gui.SS_Form1..MousePointer(0)
+Gui.SS_Form1..Moveable(True)
+Gui.SS_Form1..Sizeable(False)
+Gui.SS_Form1..ShowInTaskBar(True)
+Gui.SS_Form1..TitleBar(True)
+
+Gui.SS_Form1..Event(unload,unload)
+
+Gui.SS_Form1.frameGSS.Create(frame)
+Gui.SS_Form1.frameGSS.Caption("Global Shop")
+Gui.SS_Form1.frameGSS.Visible(True)
+Gui.SS_Form1.frameGSS.Size(6420,1815)
+Gui.SS_Form1.frameGSS.Zorder(0)
+Gui.SS_Form1.frameGSS.Position(200,100)
+Gui.SS_Form1.frameGSS.Enabled(True)
+Gui.SS_Form1.frameGSS.BorderStyle(0)
+Gui.SS_Form1.frameGSS.FontName("Arial")
+Gui.SS_Form1.frameGSS.FontSize(8)
+Gui.SS_Form1.frameGSS.Tooltip("")
+
+
+Gui.SS_Form1.frameSPI.Create(frame)
+Gui.SS_Form1.frameSPI.Caption("Spiridon")
+Gui.SS_Form1.frameSPI.Visible(True)
+Gui.SS_Form1.frameSPI.Size(6420,1815)
+Gui.SS_Form1.frameSPI.Zorder(0)
+Gui.SS_Form1.frameSPI.Position(200,2005)
+Gui.SS_Form1.frameSPI.Enabled(True)
+Gui.SS_Form1.frameSPI.BorderStyle(0)
+Gui.SS_Form1.frameSPI.FontName("Arial")
+Gui.SS_Form1.frameSPI.FontSize(8)
+Gui.SS_Form1.frameSPI.Tooltip("")
+
+
+Gui.SS_Form1.frameMOZ.Create(frame)
+Gui.SS_Form1.frameMOZ.Caption("Mozard")
+Gui.SS_Form1.frameMOZ.Visible(True)
+Gui.SS_Form1.frameMOZ.Size(6420,1815)
+Gui.SS_Form1.frameMOZ.Zorder(0)
+Gui.SS_Form1.frameMOZ.Position(200,3925)
+Gui.SS_Form1.frameMOZ.Enabled(True)
+Gui.SS_Form1.frameMOZ.BorderStyle(0)
+Gui.SS_Form1.frameMOZ.FontName("Arial")
+Gui.SS_Form1.frameMOZ.FontSize(8)
+Gui.SS_Form1.frameMOZ.Tooltip("")
+
+
+Gui.SS_Form1.frameTP.Create(frame)
+Gui.SS_Form1.frameTP.Caption("")
+Gui.SS_Form1.frameTP.Visible(True)
+Gui.SS_Form1.frameTP.Size(6420,1815)
+Gui.SS_Form1.frameTP.Zorder(0)
+Gui.SS_Form1.frameTP.Position(200,5840)
+Gui.SS_Form1.frameTP.Enabled(True)
+Gui.SS_Form1.frameTP.BorderStyle(0)
+Gui.SS_Form1.frameTP.FontName("Arial")
+Gui.SS_Form1.frameTP.FontSize(8)
+Gui.SS_Form1.frameTP.Tooltip("")
+
+
+Gui.SS_Form1.lbl_txtGSSAcct.Create(label)
+Gui.SS_Form1.lbl_txtGSSAcct.Caption("GL Account")
+Gui.SS_Form1.lbl_txtGSSAcct.Visible(True)
+Gui.SS_Form1.lbl_txtGSSAcct.Size(1800,200)
+Gui.SS_Form1.lbl_txtGSSAcct.Zorder(1)
+Gui.SS_Form1.lbl_txtGSSAcct.Position(245,620)
+Gui.SS_Form1.lbl_txtGSSAcct.Enabled(True)
+Gui.SS_Form1.lbl_txtGSSAcct.Alignment(0)
+Gui.SS_Form1.lbl_txtGSSAcct.FontName("Arial")
+Gui.SS_Form1.lbl_txtGSSAcct.FontSize(8)
+Gui.SS_Form1.lbl_txtGSSAcct.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtGSSAcct.BackStyle(0)
+Gui.SS_Form1.lbl_txtGSSAcct.Parent("framegss")
+Gui.SS_Form1.lbl_txtGSSAcct.Tooltip("")
+Gui.SS_Form1.lbl_txtGSSAcct.ControlGroup(2)
+
+
+Gui.SS_Form1.txtGSSAcct.Create(textbox)
+Gui.SS_Form1.txtGSSAcct.Text("")
+Gui.SS_Form1.txtGSSAcct.Visible(True)
+Gui.SS_Form1.txtGSSAcct.Size(1800,330)
+Gui.SS_Form1.txtGSSAcct.Zorder(0)
+Gui.SS_Form1.txtGSSAcct.Position(200,845)
+Gui.SS_Form1.txtGSSAcct.Enabled(True)
+Gui.SS_Form1.txtGSSAcct.Alignment(0)
+Gui.SS_Form1.txtGSSAcct.FontName("Arial")
+Gui.SS_Form1.txtGSSAcct.FontSize(8)
+Gui.SS_Form1.txtGSSAcct.Backcolor(16777215)
+Gui.SS_Form1.txtGSSAcct.BorderStyle(1)
+Gui.SS_Form1.txtGSSAcct.MaxLength(15)
+Gui.SS_Form1.txtGSSAcct.Parent("framegss")
+Gui.SS_Form1.txtGSSAcct.TabStop(True)
+Gui.SS_Form1.txtGSSAcct.TabIndex(1)
+Gui.SS_Form1.txtGSSAcct.Tooltip("")
+Gui.SS_Form1.txtGSSAcct.ControlGroup(1)
+Gui.SS_Form1.txtGSSAcct.DefaultValue("")
+
+Gui.SS_Form1.txtGSSAcct.Event(change,txtgssacct_change)
+
+Gui.SS_Form1.cmd_txtGSSAcct.Create(button)
+Gui.SS_Form1.cmd_txtGSSAcct.Caption("^")
+Gui.SS_Form1.cmd_txtGSSAcct.Visible(True)
+Gui.SS_Form1.cmd_txtGSSAcct.Size(330,330)
+Gui.SS_Form1.cmd_txtGSSAcct.Zorder(0)
+Gui.SS_Form1.cmd_txtGSSAcct.Position(2015,845)
+Gui.SS_Form1.cmd_txtGSSAcct.Enabled(True)
+Gui.SS_Form1.cmd_txtGSSAcct.FontName("Arial")
+Gui.SS_Form1.cmd_txtGSSAcct.FontSize(8)
+Gui.SS_Form1.cmd_txtGSSAcct.Parent("framegss")
+Gui.SS_Form1.cmd_txtGSSAcct.TabStop(True)
+Gui.SS_Form1.cmd_txtGSSAcct.TabIndex(2)
+Gui.SS_Form1.cmd_txtGSSAcct.Tooltip("")
+Gui.SS_Form1.cmd_txtGSSAcct.ControlGroup(0)
+Gui.SS_Form1.cmd_txtGSSAcct.DefaultValue("")
+
+Gui.SS_Form1.cmd_txtGSSAcct.Event(click,cmd_txtgssacct_click)
+
+Gui.SS_Form1.lbl_txtDescr.Create(label)
+Gui.SS_Form1.lbl_txtDescr.Caption("Description")
+Gui.SS_Form1.lbl_txtDescr.Visible(True)
+Gui.SS_Form1.lbl_txtDescr.Size(1800,200)
+Gui.SS_Form1.lbl_txtDescr.Zorder(1)
+Gui.SS_Form1.lbl_txtDescr.Position(2675,620)
+Gui.SS_Form1.lbl_txtDescr.Enabled(True)
+Gui.SS_Form1.lbl_txtDescr.Alignment(0)
+Gui.SS_Form1.lbl_txtDescr.FontName("Arial")
+Gui.SS_Form1.lbl_txtDescr.FontSize(8)
+Gui.SS_Form1.lbl_txtDescr.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtDescr.BackStyle(0)
+Gui.SS_Form1.lbl_txtDescr.Parent("framegss")
+Gui.SS_Form1.lbl_txtDescr.Tooltip("")
+Gui.SS_Form1.lbl_txtDescr.ControlGroup(2)
+
+
+Gui.SS_Form1.txtDescr.Create(textbox)
+Gui.SS_Form1.txtDescr.Text("")
+Gui.SS_Form1.txtDescr.Visible(True)
+Gui.SS_Form1.txtDescr.Size(3540,330)
+Gui.SS_Form1.txtDescr.Zorder(0)
+Gui.SS_Form1.txtDescr.Position(2675,845)
+Gui.SS_Form1.txtDescr.Enabled(True)
+Gui.SS_Form1.txtDescr.Alignment(0)
+Gui.SS_Form1.txtDescr.FontName("Arial")
+Gui.SS_Form1.txtDescr.FontSize(8)
+Gui.SS_Form1.txtDescr.Backcolor(16777215)
+Gui.SS_Form1.txtDescr.BorderStyle(1)
+Gui.SS_Form1.txtDescr.MaxLength(50)
+Gui.SS_Form1.txtDescr.Parent("framegss")
+Gui.SS_Form1.txtDescr.TabStop(True)
+Gui.SS_Form1.txtDescr.TabIndex(3)
+Gui.SS_Form1.txtDescr.Tooltip("")
+Gui.SS_Form1.txtDescr.ControlGroup(0)
+Gui.SS_Form1.txtDescr.DefaultValue("")
+
+
+Gui.SS_Form1.chkRev.Create(checkbox)
+Gui.SS_Form1.chkRev.Alignment(0)
+Gui.SS_Form1.chkRev.Caption("Revenue")
+Gui.SS_Form1.chkRev.Visible(True)
+Gui.SS_Form1.chkRev.Size(975,300)
+Gui.SS_Form1.chkRev.Zorder(0)
+Gui.SS_Form1.chkRev.Position(5210,200)
+Gui.SS_Form1.chkRev.Enabled(True)
+Gui.SS_Form1.chkRev.FontName("Arial")
+Gui.SS_Form1.chkRev.FontSize(8)
+Gui.SS_Form1.chkRev.Parent("framegss")
+Gui.SS_Form1.chkRev.TabStop(True)
+Gui.SS_Form1.chkRev.TabIndex(4)
+Gui.SS_Form1.chkRev.Tooltip("")
+Gui.SS_Form1.chkRev.ControlGroup(0)
+Gui.SS_Form1.chkRev.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtSPIAcct.Create(label)
+Gui.SS_Form1.lbl_txtSPIAcct.Caption("GL Account")
+Gui.SS_Form1.lbl_txtSPIAcct.Visible(True)
+Gui.SS_Form1.lbl_txtSPIAcct.Size(1800,200)
+Gui.SS_Form1.lbl_txtSPIAcct.Zorder(1)
+Gui.SS_Form1.lbl_txtSPIAcct.Position(190,190)
+Gui.SS_Form1.lbl_txtSPIAcct.Enabled(True)
+Gui.SS_Form1.lbl_txtSPIAcct.Alignment(0)
+Gui.SS_Form1.lbl_txtSPIAcct.FontName("Arial")
+Gui.SS_Form1.lbl_txtSPIAcct.FontSize(8)
+Gui.SS_Form1.lbl_txtSPIAcct.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtSPIAcct.BackStyle(0)
+Gui.SS_Form1.lbl_txtSPIAcct.Parent("framespi")
+Gui.SS_Form1.lbl_txtSPIAcct.Tooltip("")
+Gui.SS_Form1.lbl_txtSPIAcct.ControlGroup(2)
+
+
+Gui.SS_Form1.txtSPIAcct.Create(textbox)
+Gui.SS_Form1.txtSPIAcct.Text("")
+Gui.SS_Form1.txtSPIAcct.Visible(True)
+Gui.SS_Form1.txtSPIAcct.Size(1800,330)
+Gui.SS_Form1.txtSPIAcct.Zorder(0)
+Gui.SS_Form1.txtSPIAcct.Position(190,420)
+Gui.SS_Form1.txtSPIAcct.Enabled(True)
+Gui.SS_Form1.txtSPIAcct.Alignment(0)
+Gui.SS_Form1.txtSPIAcct.FontName("Arial")
+Gui.SS_Form1.txtSPIAcct.FontSize(8)
+Gui.SS_Form1.txtSPIAcct.Backcolor(16777215)
+Gui.SS_Form1.txtSPIAcct.BorderStyle(1)
+Gui.SS_Form1.txtSPIAcct.MaxLength(8)
+Gui.SS_Form1.txtSPIAcct.Parent("framespi")
+Gui.SS_Form1.txtSPIAcct.TabStop(True)
+Gui.SS_Form1.txtSPIAcct.TabIndex(5)
+Gui.SS_Form1.txtSPIAcct.Tooltip("")
+Gui.SS_Form1.txtSPIAcct.ControlGroup(0)
+Gui.SS_Form1.txtSPIAcct.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtSPIPC.Create(label)
+Gui.SS_Form1.lbl_txtSPIPC.Caption("Profit Center")
+Gui.SS_Form1.lbl_txtSPIPC.Visible(True)
+Gui.SS_Form1.lbl_txtSPIPC.Size(1800,200)
+Gui.SS_Form1.lbl_txtSPIPC.Zorder(1)
+Gui.SS_Form1.lbl_txtSPIPC.Position(190,970)
+Gui.SS_Form1.lbl_txtSPIPC.Enabled(True)
+Gui.SS_Form1.lbl_txtSPIPC.Alignment(0)
+Gui.SS_Form1.lbl_txtSPIPC.FontName("Arial")
+Gui.SS_Form1.lbl_txtSPIPC.FontSize(8)
+Gui.SS_Form1.lbl_txtSPIPC.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtSPIPC.BackStyle(0)
+Gui.SS_Form1.lbl_txtSPIPC.Parent("framespi")
+Gui.SS_Form1.lbl_txtSPIPC.Tooltip("")
+Gui.SS_Form1.lbl_txtSPIPC.ControlGroup(2)
+
+
+Gui.SS_Form1.txtSPIPC.Create(textbox)
+Gui.SS_Form1.txtSPIPC.Text("")
+Gui.SS_Form1.txtSPIPC.Visible(True)
+Gui.SS_Form1.txtSPIPC.Size(1800,330)
+Gui.SS_Form1.txtSPIPC.Zorder(0)
+Gui.SS_Form1.txtSPIPC.Position(190,1200)
+Gui.SS_Form1.txtSPIPC.Enabled(True)
+Gui.SS_Form1.txtSPIPC.Alignment(0)
+Gui.SS_Form1.txtSPIPC.FontName("Arial")
+Gui.SS_Form1.txtSPIPC.FontSize(8)
+Gui.SS_Form1.txtSPIPC.Backcolor(16777215)
+Gui.SS_Form1.txtSPIPC.BorderStyle(1)
+Gui.SS_Form1.txtSPIPC.MaxLength(10)
+Gui.SS_Form1.txtSPIPC.Parent("framespi")
+Gui.SS_Form1.txtSPIPC.TabStop(True)
+Gui.SS_Form1.txtSPIPC.TabIndex(6)
+Gui.SS_Form1.txtSPIPC.Tooltip("")
+Gui.SS_Form1.txtSPIPC.ControlGroup(0)
+Gui.SS_Form1.txtSPIPC.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtSPICC.Create(label)
+Gui.SS_Form1.lbl_txtSPICC.Caption("Cost Center")
+Gui.SS_Form1.lbl_txtSPICC.Visible(True)
+Gui.SS_Form1.lbl_txtSPICC.Size(1800,200)
+Gui.SS_Form1.lbl_txtSPICC.Zorder(1)
+Gui.SS_Form1.lbl_txtSPICC.Position(2270,970)
+Gui.SS_Form1.lbl_txtSPICC.Enabled(True)
+Gui.SS_Form1.lbl_txtSPICC.Alignment(0)
+Gui.SS_Form1.lbl_txtSPICC.FontName("Arial")
+Gui.SS_Form1.lbl_txtSPICC.FontSize(8)
+Gui.SS_Form1.lbl_txtSPICC.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtSPICC.BackStyle(0)
+Gui.SS_Form1.lbl_txtSPICC.Parent("framespi")
+Gui.SS_Form1.lbl_txtSPICC.Tooltip("")
+Gui.SS_Form1.lbl_txtSPICC.ControlGroup(2)
+
+
+Gui.SS_Form1.txtSPICC.Create(textbox)
+Gui.SS_Form1.txtSPICC.Text("")
+Gui.SS_Form1.txtSPICC.Visible(True)
+Gui.SS_Form1.txtSPICC.Size(1800,330)
+Gui.SS_Form1.txtSPICC.Zorder(0)
+Gui.SS_Form1.txtSPICC.Position(2270,1200)
+Gui.SS_Form1.txtSPICC.Enabled(True)
+Gui.SS_Form1.txtSPICC.Alignment(0)
+Gui.SS_Form1.txtSPICC.FontName("Arial")
+Gui.SS_Form1.txtSPICC.FontSize(8)
+Gui.SS_Form1.txtSPICC.Backcolor(16777215)
+Gui.SS_Form1.txtSPICC.BorderStyle(1)
+Gui.SS_Form1.txtSPICC.MaxLength(9)
+Gui.SS_Form1.txtSPICC.Parent("framespi")
+Gui.SS_Form1.txtSPICC.TabStop(True)
+Gui.SS_Form1.txtSPICC.TabIndex(7)
+Gui.SS_Form1.txtSPICC.Tooltip("")
+Gui.SS_Form1.txtSPICC.ControlGroup(0)
+Gui.SS_Form1.txtSPICC.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtSPIOrd.Create(label)
+Gui.SS_Form1.lbl_txtSPIOrd.Caption("Order")
+Gui.SS_Form1.lbl_txtSPIOrd.Visible(True)
+Gui.SS_Form1.lbl_txtSPIOrd.Size(1800,200)
+Gui.SS_Form1.lbl_txtSPIOrd.Zorder(1)
+Gui.SS_Form1.lbl_txtSPIOrd.Position(4400,970)
+Gui.SS_Form1.lbl_txtSPIOrd.Enabled(True)
+Gui.SS_Form1.lbl_txtSPIOrd.Alignment(0)
+Gui.SS_Form1.lbl_txtSPIOrd.FontName("Arial")
+Gui.SS_Form1.lbl_txtSPIOrd.FontSize(8)
+Gui.SS_Form1.lbl_txtSPIOrd.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtSPIOrd.BackStyle(0)
+Gui.SS_Form1.lbl_txtSPIOrd.Parent("framespi")
+Gui.SS_Form1.lbl_txtSPIOrd.Tooltip("")
+Gui.SS_Form1.lbl_txtSPIOrd.ControlGroup(2)
+
+
+Gui.SS_Form1.txtSPIOrd.Create(textbox)
+Gui.SS_Form1.txtSPIOrd.Text("")
+Gui.SS_Form1.txtSPIOrd.Visible(True)
+Gui.SS_Form1.txtSPIOrd.Size(1800,330)
+Gui.SS_Form1.txtSPIOrd.Zorder(0)
+Gui.SS_Form1.txtSPIOrd.Position(4400,1200)
+Gui.SS_Form1.txtSPIOrd.Enabled(True)
+Gui.SS_Form1.txtSPIOrd.Alignment(0)
+Gui.SS_Form1.txtSPIOrd.FontName("Arial")
+Gui.SS_Form1.txtSPIOrd.FontSize(8)
+Gui.SS_Form1.txtSPIOrd.Backcolor(16777215)
+Gui.SS_Form1.txtSPIOrd.BorderStyle(1)
+Gui.SS_Form1.txtSPIOrd.MaxLength(12)
+Gui.SS_Form1.txtSPIOrd.Parent("framespi")
+Gui.SS_Form1.txtSPIOrd.TabStop(True)
+Gui.SS_Form1.txtSPIOrd.TabIndex(8)
+Gui.SS_Form1.txtSPIOrd.Tooltip("")
+Gui.SS_Form1.txtSPIOrd.ControlGroup(0)
+Gui.SS_Form1.txtSPIOrd.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtMOZAcct.Create(label)
+Gui.SS_Form1.lbl_txtMOZAcct.Caption("GL Account")
+Gui.SS_Form1.lbl_txtMOZAcct.Visible(True)
+Gui.SS_Form1.lbl_txtMOZAcct.Size(1800,200)
+Gui.SS_Form1.lbl_txtMOZAcct.Zorder(1)
+Gui.SS_Form1.lbl_txtMOZAcct.Position(190,205)
+Gui.SS_Form1.lbl_txtMOZAcct.Enabled(True)
+Gui.SS_Form1.lbl_txtMOZAcct.Alignment(0)
+Gui.SS_Form1.lbl_txtMOZAcct.FontName("Arial")
+Gui.SS_Form1.lbl_txtMOZAcct.FontSize(8)
+Gui.SS_Form1.lbl_txtMOZAcct.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtMOZAcct.BackStyle(0)
+Gui.SS_Form1.lbl_txtMOZAcct.Parent("framemoz")
+Gui.SS_Form1.lbl_txtMOZAcct.Tooltip("")
+Gui.SS_Form1.lbl_txtMOZAcct.ControlGroup(2)
+
+
+Gui.SS_Form1.txtMOZAcct.Create(textbox)
+Gui.SS_Form1.txtMOZAcct.Text("")
+Gui.SS_Form1.txtMOZAcct.Visible(True)
+Gui.SS_Form1.txtMOZAcct.Size(1800,330)
+Gui.SS_Form1.txtMOZAcct.Zorder(0)
+Gui.SS_Form1.txtMOZAcct.Position(190,420)
+Gui.SS_Form1.txtMOZAcct.Enabled(True)
+Gui.SS_Form1.txtMOZAcct.Alignment(0)
+Gui.SS_Form1.txtMOZAcct.FontName("Arial")
+Gui.SS_Form1.txtMOZAcct.FontSize(8)
+Gui.SS_Form1.txtMOZAcct.Backcolor(16777215)
+Gui.SS_Form1.txtMOZAcct.BorderStyle(1)
+Gui.SS_Form1.txtMOZAcct.MaxLength(8)
+Gui.SS_Form1.txtMOZAcct.Parent("framemoz")
+Gui.SS_Form1.txtMOZAcct.TabStop(True)
+Gui.SS_Form1.txtMOZAcct.TabIndex(9)
+Gui.SS_Form1.txtMOZAcct.Tooltip("")
+Gui.SS_Form1.txtMOZAcct.ControlGroup(0)
+Gui.SS_Form1.txtMOZAcct.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtMOZPC.Create(label)
+Gui.SS_Form1.lbl_txtMOZPC.Caption("Profit Center")
+Gui.SS_Form1.lbl_txtMOZPC.Visible(True)
+Gui.SS_Form1.lbl_txtMOZPC.Size(1800,200)
+Gui.SS_Form1.lbl_txtMOZPC.Zorder(1)
+Gui.SS_Form1.lbl_txtMOZPC.Position(190,985)
+Gui.SS_Form1.lbl_txtMOZPC.Enabled(True)
+Gui.SS_Form1.lbl_txtMOZPC.Alignment(0)
+Gui.SS_Form1.lbl_txtMOZPC.FontName("Arial")
+Gui.SS_Form1.lbl_txtMOZPC.FontSize(8)
+Gui.SS_Form1.lbl_txtMOZPC.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtMOZPC.BackStyle(0)
+Gui.SS_Form1.lbl_txtMOZPC.Parent("framemoz")
+Gui.SS_Form1.lbl_txtMOZPC.Tooltip("")
+Gui.SS_Form1.lbl_txtMOZPC.ControlGroup(2)
+
+
+Gui.SS_Form1.txtMOZPC.Create(textbox)
+Gui.SS_Form1.txtMOZPC.Text("")
+Gui.SS_Form1.txtMOZPC.Visible(True)
+Gui.SS_Form1.txtMOZPC.Size(1800,330)
+Gui.SS_Form1.txtMOZPC.Zorder(0)
+Gui.SS_Form1.txtMOZPC.Position(190,1200)
+Gui.SS_Form1.txtMOZPC.Enabled(True)
+Gui.SS_Form1.txtMOZPC.Alignment(0)
+Gui.SS_Form1.txtMOZPC.FontName("Arial")
+Gui.SS_Form1.txtMOZPC.FontSize(8)
+Gui.SS_Form1.txtMOZPC.Backcolor(16777215)
+Gui.SS_Form1.txtMOZPC.BorderStyle(1)
+Gui.SS_Form1.txtMOZPC.MaxLength(10)
+Gui.SS_Form1.txtMOZPC.Parent("framemoz")
+Gui.SS_Form1.txtMOZPC.TabStop(True)
+Gui.SS_Form1.txtMOZPC.TabIndex(10)
+Gui.SS_Form1.txtMOZPC.Tooltip("")
+Gui.SS_Form1.txtMOZPC.ControlGroup(0)
+Gui.SS_Form1.txtMOZPC.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtMOZCC.Create(label)
+Gui.SS_Form1.lbl_txtMOZCC.Caption("Cost Center")
+Gui.SS_Form1.lbl_txtMOZCC.Visible(True)
+Gui.SS_Form1.lbl_txtMOZCC.Size(1800,200)
+Gui.SS_Form1.lbl_txtMOZCC.Zorder(1)
+Gui.SS_Form1.lbl_txtMOZCC.Position(2270,985)
+Gui.SS_Form1.lbl_txtMOZCC.Enabled(True)
+Gui.SS_Form1.lbl_txtMOZCC.Alignment(0)
+Gui.SS_Form1.lbl_txtMOZCC.FontName("Arial")
+Gui.SS_Form1.lbl_txtMOZCC.FontSize(8)
+Gui.SS_Form1.lbl_txtMOZCC.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtMOZCC.BackStyle(0)
+Gui.SS_Form1.lbl_txtMOZCC.Parent("framemoz")
+Gui.SS_Form1.lbl_txtMOZCC.Tooltip("")
+Gui.SS_Form1.lbl_txtMOZCC.ControlGroup(2)
+
+
+Gui.SS_Form1.txtMOZCC.Create(textbox)
+Gui.SS_Form1.txtMOZCC.Text("")
+Gui.SS_Form1.txtMOZCC.Visible(True)
+Gui.SS_Form1.txtMOZCC.Size(1800,330)
+Gui.SS_Form1.txtMOZCC.Zorder(0)
+Gui.SS_Form1.txtMOZCC.Position(2270,1200)
+Gui.SS_Form1.txtMOZCC.Enabled(True)
+Gui.SS_Form1.txtMOZCC.Alignment(0)
+Gui.SS_Form1.txtMOZCC.FontName("Arial")
+Gui.SS_Form1.txtMOZCC.FontSize(8)
+Gui.SS_Form1.txtMOZCC.Backcolor(16777215)
+Gui.SS_Form1.txtMOZCC.BorderStyle(1)
+Gui.SS_Form1.txtMOZCC.MaxLength(9)
+Gui.SS_Form1.txtMOZCC.Parent("framemoz")
+Gui.SS_Form1.txtMOZCC.TabStop(True)
+Gui.SS_Form1.txtMOZCC.TabIndex(11)
+Gui.SS_Form1.txtMOZCC.Tooltip("")
+Gui.SS_Form1.txtMOZCC.ControlGroup(0)
+Gui.SS_Form1.txtMOZCC.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtTP.Create(label)
+Gui.SS_Form1.lbl_txtTP.Caption("Trading Partner")
+Gui.SS_Form1.lbl_txtTP.Visible(True)
+Gui.SS_Form1.lbl_txtTP.Size(1800,200)
+Gui.SS_Form1.lbl_txtTP.Zorder(1)
+Gui.SS_Form1.lbl_txtTP.Position(200,620)
+Gui.SS_Form1.lbl_txtTP.Enabled(True)
+Gui.SS_Form1.lbl_txtTP.Alignment(0)
+Gui.SS_Form1.lbl_txtTP.FontName("Arial")
+Gui.SS_Form1.lbl_txtTP.FontSize(8)
+Gui.SS_Form1.lbl_txtTP.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtTP.BackStyle(0)
+Gui.SS_Form1.lbl_txtTP.Parent("frametp")
+Gui.SS_Form1.lbl_txtTP.Tooltip("")
+Gui.SS_Form1.lbl_txtTP.ControlGroup(2)
+
+
+Gui.SS_Form1.txtTP.Create(textbox)
+Gui.SS_Form1.txtTP.Text("")
+Gui.SS_Form1.txtTP.Visible(True)
+Gui.SS_Form1.txtTP.Size(1800,330)
+Gui.SS_Form1.txtTP.Zorder(0)
+Gui.SS_Form1.txtTP.Position(190,845)
+Gui.SS_Form1.txtTP.Enabled(True)
+Gui.SS_Form1.txtTP.Alignment(0)
+Gui.SS_Form1.txtTP.FontName("Arial")
+Gui.SS_Form1.txtTP.FontSize(8)
+Gui.SS_Form1.txtTP.Backcolor(16777215)
+Gui.SS_Form1.txtTP.BorderStyle(1)
+Gui.SS_Form1.txtTP.MaxLength(4)
+Gui.SS_Form1.txtTP.Parent("frametp")
+Gui.SS_Form1.txtTP.TabStop(True)
+Gui.SS_Form1.txtTP.TabIndex(12)
+Gui.SS_Form1.txtTP.Tooltip("")
+Gui.SS_Form1.txtTP.ControlGroup(0)
+Gui.SS_Form1.txtTP.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtPPC.Create(label)
+Gui.SS_Form1.lbl_txtPPC.Caption("Partner Profit Center")
+Gui.SS_Form1.lbl_txtPPC.Visible(True)
+Gui.SS_Form1.lbl_txtPPC.Size(1800,200)
+Gui.SS_Form1.lbl_txtPPC.Zorder(1)
+Gui.SS_Form1.lbl_txtPPC.Position(2300,620)
+Gui.SS_Form1.lbl_txtPPC.Enabled(True)
+Gui.SS_Form1.lbl_txtPPC.Alignment(0)
+Gui.SS_Form1.lbl_txtPPC.FontName("Arial")
+Gui.SS_Form1.lbl_txtPPC.FontSize(8)
+Gui.SS_Form1.lbl_txtPPC.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtPPC.BackStyle(0)
+Gui.SS_Form1.lbl_txtPPC.Parent("frametp")
+Gui.SS_Form1.lbl_txtPPC.Tooltip("")
+Gui.SS_Form1.lbl_txtPPC.ControlGroup(2)
+
+
+Gui.SS_Form1.txtPPC.Create(textbox)
+Gui.SS_Form1.txtPPC.Text("")
+Gui.SS_Form1.txtPPC.Visible(True)
+Gui.SS_Form1.txtPPC.Size(1800,330)
+Gui.SS_Form1.txtPPC.Zorder(0)
+Gui.SS_Form1.txtPPC.Position(2270,845)
+Gui.SS_Form1.txtPPC.Enabled(True)
+Gui.SS_Form1.txtPPC.Alignment(0)
+Gui.SS_Form1.txtPPC.FontName("Arial")
+Gui.SS_Form1.txtPPC.FontSize(8)
+Gui.SS_Form1.txtPPC.Backcolor(16777215)
+Gui.SS_Form1.txtPPC.BorderStyle(1)
+Gui.SS_Form1.txtPPC.MaxLength(10)
+Gui.SS_Form1.txtPPC.Parent("frametp")
+Gui.SS_Form1.txtPPC.TabStop(True)
+Gui.SS_Form1.txtPPC.TabIndex(13)
+Gui.SS_Form1.txtPPC.Tooltip("")
+Gui.SS_Form1.txtPPC.ControlGroup(0)
+Gui.SS_Form1.txtPPC.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_txtDC.Create(label)
+Gui.SS_Form1.lbl_txtDC.Caption("Development Code")
+Gui.SS_Form1.lbl_txtDC.Visible(True)
+Gui.SS_Form1.lbl_txtDC.Size(1800,200)
+Gui.SS_Form1.lbl_txtDC.Zorder(1)
+Gui.SS_Form1.lbl_txtDC.Position(4400,620)
+Gui.SS_Form1.lbl_txtDC.Enabled(True)
+Gui.SS_Form1.lbl_txtDC.Alignment(0)
+Gui.SS_Form1.lbl_txtDC.FontName("Arial")
+Gui.SS_Form1.lbl_txtDC.FontSize(8)
+Gui.SS_Form1.lbl_txtDC.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_txtDC.BackStyle(0)
+Gui.SS_Form1.lbl_txtDC.Parent("frametp")
+Gui.SS_Form1.lbl_txtDC.Tooltip("")
+Gui.SS_Form1.lbl_txtDC.ControlGroup(2)
+
+
+Gui.SS_Form1.txtDC.Create(textbox)
+Gui.SS_Form1.txtDC.Text("")
+Gui.SS_Form1.txtDC.Visible(True)
+Gui.SS_Form1.txtDC.Size(1800,330)
+Gui.SS_Form1.txtDC.Zorder(0)
+Gui.SS_Form1.txtDC.Position(4400,845)
+Gui.SS_Form1.txtDC.Enabled(True)
+Gui.SS_Form1.txtDC.Alignment(0)
+Gui.SS_Form1.txtDC.FontName("Arial")
+Gui.SS_Form1.txtDC.FontSize(8)
+Gui.SS_Form1.txtDC.Backcolor(16777215)
+Gui.SS_Form1.txtDC.BorderStyle(1)
+Gui.SS_Form1.txtDC.MaxLength(2)
+Gui.SS_Form1.txtDC.Parent("frametp")
+Gui.SS_Form1.txtDC.TabStop(True)
+Gui.SS_Form1.txtDC.TabIndex(14)
+Gui.SS_Form1.txtDC.Tooltip("")
+Gui.SS_Form1.txtDC.ControlGroup(0)
+Gui.SS_Form1.txtDC.DefaultValue("")
+
+
+Gui.SS_Form1.cmdCreate.Create(button)
+Gui.SS_Form1.cmdCreate.Caption("Save")
+Gui.SS_Form1.cmdCreate.Visible(True)
+Gui.SS_Form1.cmdCreate.Size(1000,360)
+Gui.SS_Form1.cmdCreate.Zorder(0)
+Gui.SS_Form1.cmdCreate.Position(200,7750)
+Gui.SS_Form1.cmdCreate.Enabled(True)
+Gui.SS_Form1.cmdCreate.FontName("Arial")
+Gui.SS_Form1.cmdCreate.FontSize(8)
+Gui.SS_Form1.cmdCreate.TabStop(True)
+Gui.SS_Form1.cmdCreate.TabIndex(15)
+Gui.SS_Form1.cmdCreate.Tooltip("")
+Gui.SS_Form1.cmdCreate.ControlGroup(2)
+Gui.SS_Form1.cmdCreate.DefaultValue("Save")
+
+Gui.SS_Form1.cmdCreate.Event(click,cmdsave_click)
+
+Gui.SS_Form1.cmdDelete.Create(button)
+Gui.SS_Form1.cmdDelete.Caption("Delete")
+Gui.SS_Form1.cmdDelete.Visible(True)
+Gui.SS_Form1.cmdDelete.Size(1000,360)
+Gui.SS_Form1.cmdDelete.Zorder(0)
+Gui.SS_Form1.cmdDelete.Position(1400,7750)
+Gui.SS_Form1.cmdDelete.Enabled(True)
+Gui.SS_Form1.cmdDelete.FontName("Arial")
+Gui.SS_Form1.cmdDelete.FontSize(8)
+Gui.SS_Form1.cmdDelete.TabStop(True)
+Gui.SS_Form1.cmdDelete.TabIndex(16)
+Gui.SS_Form1.cmdDelete.Tooltip("")
+Gui.SS_Form1.cmdDelete.ControlGroup(2)
+Gui.SS_Form1.cmdDelete.DefaultValue("Delete")
+
+Gui.SS_Form1.cmdDelete.Event(click,cmddelete_click)
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+
+F.ODBC.Connection!ConA.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+Gui.SS_Form1..Show
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+
+F.ODBC.Connection!ConA.Close
+f.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+program.sub.cmddelete_click.start
+
+V.Local.sDel.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.Msgbox("Remove SAP Map record.  Are you sure?","",4,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,=,7)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.String.Concat("delete from GCG_3018_SAPAcctMap where GSS_GL_Acct ='",V.Screen.SS_Form1!txtGSSAcct.Text,"' ",V.Local.sDel)
+F.ODBC.Connection!ConA.Execute(V.Local.sDel)
+
+gui.SS_Form1..ClearGroup(1)
+F.Intrinsic.Control.CallSub(Clearscreen)
+
+program.sub.cmddelete_click.end
+
+program.sub.cmdsave_click.start
+
+V.Local.sSel.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sVal.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkRev.Value,=,1)
+	V.Local.sRev.Set("Y")
+F.Intrinsic.Control.Else
+	V.Local.sRev.Set("")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat("select * from GCG_3018_SAPAcctMap where GSS_GL_Acct ='",V.Screen.SS_Form1!txtGSSAcct.Text,"' ",V.Local.sSel)
+F.ODBC.Connection!ConA.OpenRecordsetRW("rstSel",V.Local.sSel)
+
+	F.Intrinsic.Control.If(V.ODBC.ConA!rstSel.EOF,=,True)
+		F.ODBC.ConA!rstSel.AddNew
+		F.ODBC.ConA!rstSel.Set!GSS_GL_Acct(V.Screen.SS_Form1!txtGSSAcct.Text)
+	F.Intrinsic.Control.EndIf
+		F.ODBC.ConA!rstSel.Set!SPI_GL_Acct(V.Screen.SS_Form1!txtSPIAcct.Text)
+		F.ODBC.ConA!rstSel.Set!Description(V.Screen.SS_Form1!txtDescr.Text)
+		F.ODBC.ConA!rstSel.Set!SPI_GL_Acct(V.Screen.SS_Form1!txtSPIAcct.Text)
+		F.ODBC.ConA!rstSel.Set!SPI_Profit_Cntr(V.Screen.SS_Form1!txtSPIPC.Text)
+		F.ODBC.ConA!rstSel.Set!SPI_Cost_Cntr(V.Screen.SS_Form1!txtSPICC.Text)
+		F.ODBC.ConA!rstSel.Set!SPI_Order(V.Screen.SS_Form1!txtSPIOrd.Text)
+		F.ODBC.ConA!rstSel.Set!MOZ_GL_Acct(V.Screen.SS_Form1!txtMOZAcct.Text)
+		F.ODBC.ConA!rstSel.Set!MOZ_Profit_Cntr(V.Screen.SS_Form1!txtMOZPC.Text)
+		F.ODBC.ConA!rstSel.Set!MOZ_Cost_Cntr(V.Screen.SS_Form1!txtMOZCC.Text)
+		F.ODBC.ConA!rstSel.Set!Rev_Acct(V.Local.sRev)
+		F.ODBC.ConA!rstSel.Set!Trading_Partner(V.Screen.SS_Form1!txtTP.Text)
+		F.ODBC.ConA!rstSel.Set!Partner_Profit_Cntr(V.Screen.SS_Form1!txtPPC.Text)
+		F.ODBC.ConA!rstSel.Set!Development_Code(V.Screen.SS_Form1!txtDC.Text)
+
+		F.ODBC.ConA!rstSel.Update
+
+F.ODBC.ConA!rstSel.Close
+
+gui.SS_Form1..ClearGroup(1)
+F.Intrinsic.Control.CallSub(Clearscreen)
+
+program.sub.cmdsave_click.end
+
+program.sub.cmd_txtgssacct_click.start
+
+V.Local.sRet.Declare(String)
+
+
+F.Intrinsic.UI.CommonBrowser(6000,"",V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+Gui.SS_Form1.txtGSSAcct.Text(V.Local.sRet(0).Trim)
+gui.SS_Form1.txtDescr.Text(V.Local.sRet(1).Trim)
+
+
+program.sub.cmd_txtgssacct_click.end
+
+program.sub.txtgssacct_change.start
+
+
+V.Local.sSel.Declare(String)
+V.Local.sRet.Declare(String)
+
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!txtGSSAcct.Text,<>,"")
+
+	F.Intrinsic.String.Concat("select SPI_GL_Acct, SPI_Profit_Cntr, SPI_Cost_Cntr, SPI_Order, MOZ_GL_Acct, MOZ_Profit_Cntr, MOZ_Cost_Cntr, Trading_Partner, Partner_Profit_Cntr, Development_Code, Rev_Acct from GCG_3018_SAPAcctMap where GSS_GL_Acct ='",V.Screen.SS_Form1!txtGSSAcct.Text,"' ",V.Local.sSel)
+	f.ODBC.Connection!ConA.ExecuteAndReturn(v.Local.sSel,v.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+
+		' should only be a single record for each GSS GL acct, but split just in case
+		F.Intrinsic.String.Split(V.Local.sRet,"#$#",V.Local.sRet)
+		F.Intrinsic.String.Split(V.Local.sRet(0),"*!*",V.Local.sRet)
+		Gui.SS_Form1.txtSPIAcct.Text(V.Local.sRet(0))
+		Gui.SS_Form1.txtSPIPC.Text(V.Local.sRet(1))
+		Gui.SS_Form1.txtSPICC.Text(V.Local.sRet(2))
+		Gui.SS_Form1.txtSPIOrd.Text(V.Local.sRet(3))
+		Gui.SS_Form1.txtMOZAcct.Text(V.Local.sRet(4))
+		Gui.SS_Form1.txtMOZPC.Text(V.Local.sRet(5))
+		Gui.SS_Form1.txtMOZCC.Text(V.Local.sRet(6))
+		Gui.SS_Form1.txtTP.Text(V.Local.sRet(7))
+		Gui.SS_Form1.txtPPC.Text(V.Local.sRet(8))
+		Gui.SS_Form1.txtDC.Text(V.Local.sRet(9))
+
+		F.Intrinsic.Control.If(V.Local.sRet(10),=,"Y")
+			Gui.SS_Form1.chkRev.Value(1)
+		F.Intrinsic.Control.Else
+			Gui.SS_Form1.chkRev.Value(0)
+		F.Intrinsic.Control.EndIf
+
+	' if record doesn't exist for GSS gl acct, clear the text boxes
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(Clearscreen)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Endif
+
+program.sub.txtgssacct_change.end
+
+Program.Sub.clearScreen.Start
+
+gui.SS_Form1..ClearGroup(0)
+
+Program.Sub.clearScreen.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_SAP_Acct_Map$}$JCT$}$7/16/2013$}$False
+${$2$}$$}$$}$0$}$4$}$GSS_SAP_Acct_Map$}$7/16/2013 10:15:40 AM$}$SQL table with the following fields:
+GSS_GL_ACCT - GSS GL Account - Char 15
+SAP_GL_ACCT - Spiridon SAP Account - Char 8
+REVENUE - Revenue Acct - Char 1 (Y if Yes)
+TP - Trading Partner - Char 4
+PPC - Partner Profit Center - Char 10
+DC - Development Code - Char 2
+DESCRIPTION - Description - Char 50
+${$3$}$0$}$$}$-1$}$-1$}$$}$1/1/1900$}$for Siemens Industry Quote 4707-1
+Maintenance prgm that allows Create, Modify and Delete functionality for assigning specific SAP required info in relation to the GSS GL Account number.
+Custom Hook/Menu item
+Program.Sub.Comments.End
+Program.Sub.ScreenSS.Start
+SS_Form1{{CAPTION::GSS SAP Account Map
+SS_Form1.CTRL{{NAME::txtGSSAcct\\TYPE::2\\CAPTION::GSS GLAccount\\TABSTOP::1\\GROUP::1\\BROWSER::1\\SIZE::1
+SS_Form1.CTRL{{NAME::txtDescr\\TYPE::2\\CAPTION::Description\\TABSTOP::2\\GROUP::1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::chkRev\\TYPE::9\\CAPTION::Revenue\\TABSTOP::3\\GROUP::1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtSPIAcct\\TYPE::2\\CAPTION::Spiridon Account\\TABSTOP::4\\GROUP::2\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtSPIPC\\TYPE::2\\CAPTION::Spiridon Profit Center\\TABSTOP::5\\GROUP::2\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtSPICC\\TYPE::2\\CAPTION::Spiridon Cost Center\\TABSTOP::6\\GROUP::2\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtSPIOrd\\TYPE::2\\CAPTION::Spiridon Order\\TABSTOP::7\\GROUP::2\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtMOZAcct\\TYPE::2\\CAPTION::Mozard Account\\TABSTOP::8\\GROUP::3\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtMOZPC\\TYPE::2\\CAPTION::Mozard Profit Center\\TABSTOP::9\\GROUP::3\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtMOZCC\\TYPE::2\\CAPTION::Mozard Cost Center\\TABSTOP::10\\GROUP::3\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtTP\\TYPE::2\\CAPTION::Trading Partner\\TABSTOP::11\\GROUP::5\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtPPC\\TYPE::2\\CAPTION::Partner Profit Center\\TABSTOP::12\\GROUP::5\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtDC\\TYPE::2\\CAPTION::Development Code\\TABSTOP::13\\GROUP::5\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdCreate\\TYPE::5\\CAPTION::Save\\TABSTOP::14\\GROUP::6\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdDelete\\TYPE::5\\CAPTION::Delete\\TABSTOP::15\\GROUP::6\\BROWSER::0\\SIZE::1
+
+Program.Sub.ScreenSS.End
