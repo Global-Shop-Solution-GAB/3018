@@ -1,0 +1,677 @@
+Program.Sub.ScreenSU.Start
+
+Gui.SS_Form1..Create
+Gui.SS_Form1..Caption("TB Load to Siemens")
+Gui.SS_Form1..Size(4135,2355)
+Gui.SS_Form1..Position(0,0)
+Gui.SS_Form1..AlwaysOnTop(False)
+Gui.SS_Form1..FontName("Arial")
+Gui.SS_Form1..FontSize(8)
+Gui.SS_Form1..ForeColor(0)
+Gui.SS_Form1..Backcolor(-2147483633)
+Gui.SS_Form1..ControlBox(True)
+Gui.SS_Form1..MaxButton(False)
+Gui.SS_Form1..MinButton(False)
+Gui.SS_Form1..MousePointer(0)
+Gui.SS_Form1..Moveable(True)
+Gui.SS_Form1..Sizeable(False)
+Gui.SS_Form1..ShowInTaskBar(True)
+Gui.SS_Form1..TitleBar(True)
+
+Gui.SS_Form1..Event(unload,ss_form1_unload)
+
+Gui.SS_Form1.lbl_dtpBeg.Create(label)
+Gui.SS_Form1.lbl_dtpBeg.Caption("Start Date")
+Gui.SS_Form1.lbl_dtpBeg.Visible(True)
+Gui.SS_Form1.lbl_dtpBeg.Size(1800,200)
+Gui.SS_Form1.lbl_dtpBeg.Zorder(1)
+Gui.SS_Form1.lbl_dtpBeg.Position(100,135)
+Gui.SS_Form1.lbl_dtpBeg.Enabled(True)
+Gui.SS_Form1.lbl_dtpBeg.Alignment(0)
+Gui.SS_Form1.lbl_dtpBeg.FontName("Arial")
+Gui.SS_Form1.lbl_dtpBeg.FontSize(8)
+Gui.SS_Form1.lbl_dtpBeg.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_dtpBeg.BackStyle(0)
+Gui.SS_Form1.lbl_dtpBeg.Tooltip("")
+Gui.SS_Form1.lbl_dtpBeg.ControlGroup(0)
+
+
+Gui.SS_Form1.dtpBeg.Create(datepicker)
+Gui.SS_Form1.dtpBeg.Visible(True)
+Gui.SS_Form1.dtpBeg.Size(1800,345)
+Gui.SS_Form1.dtpBeg.Zorder(0)
+Gui.SS_Form1.dtpBeg.Position(100,335)
+Gui.SS_Form1.dtpBeg.Enabled(True)
+Gui.SS_Form1.dtpBeg.Checkbox(False)
+Gui.SS_Form1.dtpBeg.TabStop(True)
+Gui.SS_Form1.dtpBeg.TabIndex(1)
+Gui.SS_Form1.dtpBeg.Tooltip("")
+Gui.SS_Form1.dtpBeg.ControlGroup(0)
+Gui.SS_Form1.dtpBeg.DefaultValue("")
+
+
+Gui.SS_Form1.lbl_dtpEnd.Create(label)
+Gui.SS_Form1.lbl_dtpEnd.Caption("End Date")
+Gui.SS_Form1.lbl_dtpEnd.Visible(True)
+Gui.SS_Form1.lbl_dtpEnd.Size(1800,200)
+Gui.SS_Form1.lbl_dtpEnd.Zorder(1)
+Gui.SS_Form1.lbl_dtpEnd.Position(1985,135)
+Gui.SS_Form1.lbl_dtpEnd.Enabled(True)
+Gui.SS_Form1.lbl_dtpEnd.Alignment(0)
+Gui.SS_Form1.lbl_dtpEnd.FontName("Arial")
+Gui.SS_Form1.lbl_dtpEnd.FontSize(8)
+Gui.SS_Form1.lbl_dtpEnd.Backcolor(-2147483633)
+Gui.SS_Form1.lbl_dtpEnd.BackStyle(0)
+Gui.SS_Form1.lbl_dtpEnd.Tooltip("")
+Gui.SS_Form1.lbl_dtpEnd.ControlGroup(0)
+
+
+Gui.SS_Form1.dtpEnd.Create(datepicker)
+Gui.SS_Form1.dtpEnd.Visible(True)
+Gui.SS_Form1.dtpEnd.Size(1800,345)
+Gui.SS_Form1.dtpEnd.Zorder(0)
+Gui.SS_Form1.dtpEnd.Position(1985,335)
+Gui.SS_Form1.dtpEnd.Enabled(True)
+Gui.SS_Form1.dtpEnd.Checkbox(False)
+Gui.SS_Form1.dtpEnd.TabStop(True)
+Gui.SS_Form1.dtpEnd.TabIndex(2)
+Gui.SS_Form1.dtpEnd.Tooltip("")
+Gui.SS_Form1.dtpEnd.ControlGroup(0)
+Gui.SS_Form1.dtpEnd.DefaultValue("")
+
+
+Gui.SS_Form1.cmdTest.Create(button)
+Gui.SS_Form1.cmdTest.Caption("Test")
+Gui.SS_Form1.cmdTest.Visible(True)
+Gui.SS_Form1.cmdTest.Size(1000,360)
+Gui.SS_Form1.cmdTest.Zorder(0)
+Gui.SS_Form1.cmdTest.Position(100,850)
+Gui.SS_Form1.cmdTest.Enabled(True)
+Gui.SS_Form1.cmdTest.FontName("Arial")
+Gui.SS_Form1.cmdTest.FontSize(8)
+Gui.SS_Form1.cmdTest.TabStop(True)
+Gui.SS_Form1.cmdTest.TabIndex(3)
+Gui.SS_Form1.cmdTest.Tooltip("")
+Gui.SS_Form1.cmdTest.ControlGroup(0)
+Gui.SS_Form1.cmdTest.DefaultValue("")
+
+Gui.SS_Form1.cmdTest.Event(click,cmdExport_click)
+
+Gui.SS_Form1.cmdProd.Create(button)
+Gui.SS_Form1.cmdProd.Caption("Production")
+Gui.SS_Form1.cmdProd.Visible(True)
+Gui.SS_Form1.cmdProd.Size(1000,360)
+Gui.SS_Form1.cmdProd.Zorder(0)
+Gui.SS_Form1.cmdProd.Position(1185,850)
+Gui.SS_Form1.cmdProd.Enabled(True)
+Gui.SS_Form1.cmdProd.FontName("Arial")
+Gui.SS_Form1.cmdProd.FontSize(8)
+Gui.SS_Form1.cmdProd.TabStop(True)
+Gui.SS_Form1.cmdProd.TabIndex(4)
+Gui.SS_Form1.cmdProd.Tooltip("")
+Gui.SS_Form1.cmdProd.ControlGroup(0)
+Gui.SS_Form1.cmdProd.DefaultValue("")
+
+Gui.SS_Form1.cmdProd.Event(click,cmdExport_click)
+
+Gui.SS_Form1.cmdRpt.Create(button)
+Gui.SS_Form1.cmdRpt.Caption("Report")
+Gui.SS_Form1.cmdRpt.Visible(True)
+Gui.SS_Form1.cmdRpt.Size(1000,360)
+Gui.SS_Form1.cmdRpt.Zorder(0)
+Gui.SS_Form1.cmdRpt.Position(100,1380)
+Gui.SS_Form1.cmdRpt.Enabled(True)
+Gui.SS_Form1.cmdRpt.FontName("Arial")
+Gui.SS_Form1.cmdRpt.FontSize(8)
+Gui.SS_Form1.cmdRpt.TabStop(True)
+Gui.SS_Form1.cmdRpt.TabIndex(5)
+Gui.SS_Form1.cmdRpt.Tooltip("")
+Gui.SS_Form1.cmdRpt.ControlGroup(0)
+Gui.SS_Form1.cmdRpt.DefaultValue("")
+
+Gui.SS_Form1.cmdRpt.Event(click,cmdrpt_click)
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.Detail.Define("JrnlId",String)
+Variable.UDT.Detail.Define("SAP_Prof_Cntr",String)
+Variable.UDT.Detail.Define("SAP_Cost_Cntr",String)
+Variable.UDT.Detail.Define("SAP_Int_Order",String)
+Variable.UDT.Detail.Define("SAP_Acct_No",String)
+Variable.UDT.Detail.Define("Dev_Code",String)
+Variable.UDT.Detail.Define("SAP_PPC",String)
+Variable.UDT.Detail.Define("Description",String)
+Variable.UDT.Detail.Define("Srvc_Code",String)
+Variable.UDT.Detail.Define("Co_Code",String)
+Variable.UDT.Detail.Define("Amount",Float)
+Variable.UDT.Detail.Define("EffDate",String)
+Variable.UDT.Detail.Define("Filler1",String)
+Variable.UDT.Detail.Define("Filler2",String)
+Variable.UDT.Detail.Define("Trading_Partner",String)
+Variable.UDT.Detail.Define("AmtString",String)
+Variable.UDT.Detail.Define("TransType",String)
+Variable.UDT.Detail.Define("DbCr",String)
+Variable.UDT.Detail.Define("WBS",String)
+Variable.uGlobal.uDetail.Declare("Detail")
+
+Variable.UDT.GlDtl.Define("GL_Account",String,GL_Account)
+Variable.UDT.GlDtl.Define("Amount",Float,Amount)
+Variable.UDT.GlDtl.Define("Post_Date",Date)
+Variable.UDT.GlDtl.Define("Tran_Type",String)
+Variable.UDT.GlDtl.Define("Customer",String)
+Variable.uGlobal.uGlDtl.Declare("GlDtl")
+Variable.UDT.Control.Define("intName",String)
+Variable.UDT.Control.Define("Debits",Float)
+Variable.UDT.Control.Define("Credits",Float)
+Variable.UDT.Control.Define("Trans",Long)
+Variable.UDT.Control.Define("CrString",String)
+Variable.UDT.Control.Define("DbString",String)
+Variable.UDT.Control.Define("TrString",String)
+Variable.uGlobal.uControl.Declare("Control")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+F.ODBC.Connection!ConA.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+Gui.SS_Form1..Show
+
+Program.Sub.Main.End
+
+program.sub.ss_form1_unload.start
+
+F.ODBC.Connection!ConA.Close
+F.Intrinsic.Control.End
+
+program.sub.ss_form1_unload.end
+
+program.sub.cmdrpt_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdrpt_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+
+Gui.SS_Form1.cmdProd.Enabled(false)
+Gui.SS_Form1.cmdRpt.Enabled(false)
+Gui.SS_Form1.cmdTest.Enabled(false)
+
+V.Local.sError.Declare(String)
+V.Local.sStVal.Declare(String)
+V.Local.iFor.Declare(Long)
+V.Local.sFile.Declare(String)
+V.Local.iHndl.Declare(Long)
+V.Local.sDteVal.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sPath.Declare(String)
+V.Local.dEOM.Declare(Date)
+V.Local.sAccountNum.Declare(String)
+
+
+F.Intrinsic.Control.CallSub(Detailfile)
+
+' make sure directories exist
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\TB_LOAD",V.Local.sPath)
+F.Intrinsic.File.DirExists(V.Local.sPath,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Date.EndOfMonth(V.Screen.SS_Form1!dtpEnd.Value,V.Local.dEOM)
+F.Intrinsic.String.Format(V.Local.dEOM,"m/d/yyyy",V.Local.sDteVal)
+F.Intrinsic.String.Replace(V.Local.sDteVal,"/"," ",V.Local.sDteVal)
+F.Intrinsic.String.Concat(V.Local.sPath,"\TB LOAD FILE_",V.Local.sDteVal,".xls",V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.File.DeleteFile(V.Local.sFile)
+F.Intrinsic.Control.EndIf
+
+'edit by TRT
+'have to add in tick marks for excel file upload to the udt uDetail, going to do it here when report is printing, not anywhere else
+'as the text file being printed may cause issue.
+'go through the entire udt and concat a ' value before each account number
+F.Intrinsic.Control.For(V.Local.iFor,V.uGlobal.uDetail.LBound,V.uglobal.uDetail.UBound,1)
+	F.Intrinsic.String.Concat("'",V.uGlobal.uDetail(v.Local.iFor)!SAP_Acct_No,V.Local.sAccountNum)
+	'write it back to the udt with the tick mark.
+	V.uGlobal.uDetail(v.Local.iFor)!SAP_Acct_No.Set(V.Local.sAccountNum)
+F.Intrinsic.Control.Next(V.Local.iFor)
+
+f.Intrinsic.Variable.udtToString(v.uGlobal.uDetail,"Co_Code*!*SAP_Acct_No*!*TransType*!*DbCr*!*Trading_Partner*!*SAP_Prof_Cntr*!*SAP_PPC*!*WBS*!*SAP_Cost_Cntr*!*SAP_Int_Order*!*Amount","$!$","*!*",v.Local.sStVal)
+F.Intrinsic.String.Concat("Company Code*!*Account*!*Transaction Type*!*Debit/Credtit*!*Trading Partner*!*Profit Center*!*Partner Profit Center*!*WBS Element*!*Cost Center*!*Order Number*!*Balance$!$",V.Local.sStVal,V.Local.sStVal)
+
+F.Automation.MSExcel.CheckPresence(V.Local.bExists)
+'have to open up the spreadsheet and write it cell by cell becuase of the leading zeroes from the part numbers are being dropped.
+
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Automation.MSExcel.WriteSpreadsheet(V.Local.sFile,"",V.Local.sStVal)
+F.Intrinsic.Control.Else
+	Function.Automation.OOCalc.WriteSpreadsheet(V.Local.sFile,True,V.Local.sStVal)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Task.ShellExec(V.Local.iHndl,"OPEN",V.Local.sFile,"","",1)
+
+Gui.SS_Form1.cmdProd.Enabled(True)
+Gui.SS_Form1.cmdRpt.Enabled(True)
+Gui.SS_Form1.cmdTest.Enabled(True)
+
+
+F.Intrinsic.Control.CallSub(Ss_form1_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdrpt_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_TB_Load_File.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdrpt_click.end
+
+Program.Sub.cmdExport_click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdExport_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+
+Gui.SS_Form1.cmdProd.Enabled(false)
+Gui.SS_Form1.cmdRpt.Enabled(false)
+Gui.SS_Form1.cmdTest.Enabled(false)
+
+
+V.Local.sError.Declare(String)
+V.Local.sFileName.Declare(String)
+V.Local.sdateString.Declare(String)
+V.Local.sPath.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.dEOM.Declare(Date)
+
+' make sure directories exist
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\TB_LOAD",V.Local.sPath)
+F.Intrinsic.File.DirExists(V.Local.sPath,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\TB_LOAD\Detail",V.Local.sPath)
+F.Intrinsic.File.DirExists(V.Local.sPath,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\TB_LOAD\Control",V.Local.sPath)
+F.Intrinsic.File.DirExists(V.Local.sPath,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.Control.EndIf
+
+' actual file names
+F.Intrinsic.Date.EndOfMonth(V.Screen.SS_Form1!dtpEnd.Value,V.Local.dEOM)
+F.Intrinsic.String.Format(V.Local.dEOM,"YYYYMMDD",V.Local.sdateString)
+'F.Intrinsic.String.Concat("svcgdtb-",V.Local.sdateString,V.Local.sFileName)
+'edit by TRT, requested change name of file from svcgdtb- to SGI9404-*****************************************
+F.Intrinsic.String.Concat("SGI9404-",V.Local.sdateString,V.Local.sFileName)
+
+
+' Production
+F.Intrinsic.Control.If(V.Args.CONTROLNAME,=,"CMDPROD")
+	F.Intrinsic.String.Concat(V.Local.sFileName,".txt",V.Local.sFileName)
+
+' Test
+F.Intrinsic.Control.ElseIf(V.Args.CONTROLNAME,=,"CMDTEST")
+	F.Intrinsic.String.Concat(V.Local.sFileName,"-test.txt",V.Local.sFileName)
+
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(Detailfile)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\TB_LOAD\Detail\",V.Local.sFileName,V.Local.sPath)
+F.Intrinsic.Control.CallSub(Writefile,"TYPE","DETAIL","FILE",V.Local.sPath)
+
+
+F.Intrinsic.Control.CallSub(Controlfile)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\TB_LOAD\Control\",V.Local.sFileName,V.Local.sPath)
+F.Intrinsic.Control.CallSub(Writefile,"TYPE","CONTROL","FILE",V.Local.sPath)
+F.Intrinsic.Control.CallSub(Ss_form1_unload)
+
+
+Gui.SS_Form1.cmdProd.Enabled(True)
+Gui.SS_Form1.cmdRpt.Enabled(True)
+Gui.SS_Form1.cmdTest.Enabled(True)
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdExport_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_TB_Load_File.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdExport_click.End
+
+Program.Sub.detailFile.Start
+F.Intrinsic.Control.SetErrorHandler("detailFile_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sBegDate.Declare(String)
+V.Local.sEndDate.Declare(String)
+V.Local.sSel.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iFor.Declare(Long)
+V.Local.sVal.Declare(String)
+V.Local.sCustRet.Declare(String)
+
+
+F.Intrinsic.String.Format(V.Screen.SS_Form1!dtpBeg.Value,"YYYYMMDD",V.Local.sBegDate)
+F.Intrinsic.String.Format(V.Screen.SS_Form1!dtpEnd.Value,"YYYYMMDD",V.Local.sEndDate)
+
+
+' get GSS GL Data
+V.uGlobal.uGlDtl.Redim(-1,-1)
+'F.Intrinsic.String.Concat("select GL_Account, sum(Amount) as Amount, Customer from GL_Detail where Post_Date between '",V.Local.sBegDate,"' and '",V.Local.sEndDate,"' group by GL_Account, Customer",V.Local.sSel)
+F.Intrinsic.String.Concat("select GL_Account, sum(Amount) as Amount  from GL_Detail where Post_Date between '",V.Local.sBegDate,"' and '",V.Local.sEndDate,"' group by GL_Account",V.Local.sSel)
+F.ODBC.Connection!ConA.OpenRecordsetRO("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.ConA!rstSel.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("ConA","rstSel","v.uGlobal.uGlDtl",False,1000)
+	F.Intrinsic.Control.EndIf
+F.ODBC.ConA!rstSel.Close
+
+' don't need 0 lines
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uGlDtl!Amount,0)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uGlDtl)
+
+' if no GL data in time frame, nothing more to do here.
+F.Intrinsic.Control.If(V.uGlobal.uGlDtl!GL_Account.UBound,=,-1)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+V.uGlobal.uDetail.Redim(V.uGlobal.uGlDtl!GL_Account.lbound,V.uGlobal.uGlDtl!GL_Account.UBound)
+
+' for each GL Detail transaction
+F.Intrinsic.Control.For(V.Local.iFor,V.uGlobal.uGlDtl.LBound,V.uGlobal.uGlDtl.UBound,1)
+
+
+' ============
+	' look for SAP GL Acct information, and set it to the Detail udt; should be only a single return, but doing some splitting, just in case
+	F.Intrinsic.String.Concat(" select SPI_Profit_Cntr, SPI_Cost_Cntr, SPI_Order, SPI_GL_Acct, Development_Code, Trading_Partner, Partner_Profit_Cntr, Description, Rev_Acct, GSS_GL_Acct from GCG_3018_SAPAcctMap where GSS_GL_Acct ='",V.uGlobal.uGlDtl(v.Local.iFor)!GL_Account,"' ",V.Local.sSel)
+	f.ODBC.Connection!ConA.ExecuteAndReturn(v.Local.sSel,v.Local.sRet)
+
+	F.Intrinsic.String.Split(V.Local.sRet,"#$#",V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet(0),"*!*",V.Local.sRet)
+	V.Local.sRet.RedimPreserve(0,9)
+
+	' make sure it finds a record
+'	F.Intrinsic.Control.If(V.Local.sRet(9),<>,"")
+
+		' Account No
+		F.Intrinsic.String.RPad(V.Local.sRet(3)," ",20,V.Local.sVal)
+		V.uGlobal.uDetail(v.Local.iFor)!SAP_Acct_No.Set(V.Local.sVal)
+
+		' Description
+		F.Intrinsic.String.RPad(V.Local.sRet(7)," ",35,V.Local.sVal)
+		V.uGlobal.uDetail(v.Local.iFor)!Description.Set(V.Local.sVal)
+
+' =========== COST CENTER, ORDER
+' if SPI_GL_Acct starts with 6
+' and if SPI_COst_Cntr <> ""
+	' SAP Cost Center = SPI_Cost_Cntr
+	' SAP Order = ""
+'else
+	' SAP Cost Center = ""
+	' SAP Order = SPI_Order
+
+		' set default, then look for conditions
+		V.Local.sVal.Set("")
+		F.Intrinsic.String.RPad(V.Local.sVal," ",20,V.Local.sVal)
+		V.uGlobal.uDetail(v.Local.iFor)!SAP_Cost_Cntr.Set(V.Local.sVal)
+
+		F.Intrinsic.String.RPad(V.Local.sRet(2)," ",20,V.Local.sVal)
+		V.uGlobal.uDetail(v.Local.iFor)!SAP_Int_Order.Set(V.Local.sVal)
+
+		F.Intrinsic.String.Left(V.Local.sRet(3),1,V.Local.sVal)
+		F.Intrinsic.Control.If(V.Local.sVal,=,"6")
+		F.Intrinsic.Control.andIf(V.Local.sRet(1).Trim,<>,"")
+			F.Intrinsic.String.RPad(V.Local.sRet(1)," ",20,V.Local.sVal)
+			V.uGlobal.uDetail(v.Local.iFor)!SAP_Cost_Cntr.Set(V.Local.sVal)
+
+			V.Local.sVal.Set("")
+			F.Intrinsic.String.RPad(V.Local.sVal," ",20,V.Local.sVal)
+			V.uGlobal.uDetail(v.Local.iFor)!SAP_Int_Order.Set(V.Local.sVal)
+		F.Intrinsic.Control.EndIf
+	
+' ============ DC, TP, PPC
+' if Revenue <> "Y" then
+	' DC = GCG_3018_GSS_SAP_Acct_Map.DC
+	' TP = GCG_3018_GSS_SAP_Acct_Map.TP
+	' PPC = GCG_3018_GSS_SAP_Acct_Map.PPC
+' else if Revenue = 'Y'
+	' TP = GCG_3018_GSS_SAP_Acct_Map.TP
+	' PPC = GCG_3018_GSS_SAP_Acct_Map.PPC
+	' if TP ='' then Dev Code = Customer_Master.Country
+	' else Dev Code =''
+
+		F.Intrinsic.String.RPad(V.Local.sRet(5)," ",4,V.Local.sVal)
+		V.uGlobal.uDetail(v.Local.iFor)!Trading_Partner.Set(V.Local.sVal)
+
+		F.Intrinsic.String.RPad(V.Local.sRet(6)," ",10,V.Local.sVal)
+		V.uGlobal.uDetail(v.Local.iFor)!SAP_PPC.Set(V.Local.sVal)
+
+
+		F.Intrinsic.Control.If(V.Local.sRet(8).Trim,<>,"Y")
+			F.Intrinsic.String.RPad(V.Local.sRet(4)," ",2,V.Local.sVal)
+			V.uGlobal.uDetail(v.Local.iFor)!Dev_Code.Set(V.Local.sVal)
+
+		F.Intrinsic.Control.Else
+'			F.Intrinsic.Control.If(V.uGlobal.uDetail(v.Local.iFor)!Trading_Partner,=,"")
+'				F.Intrinsic.String.Concat("select Country from Customer_Mstr where Customer ='",V.uGlobal.uGlDtl(v.Local.iFor)!Customer,"' ",V.Local.sSel)
+'				f.ODBC.Connection!ConA.ExecuteAndReturn(v.Local.sSel,v.Local.sCustRet)
+'				F.Intrinsic.String.Split(V.Local.sCustRet,"#$#",V.Local.sCustRet)
+'				F.Intrinsic.String.Split(V.Local.sCustRet(0),"*!*",V.Local.sCustRet)
+'				F.Intrinsic.String.RPad(V.Local.sCustRet(0)," ",2,V.Local.sVal)
+'				V.uGlobal.uDetail(v.Local.iFor)!Dev_Code.Set(V.Local.sVal)
+'
+'			F.Intrinsic.Control.Else
+				F.Intrinsic.String.RPad(V.uGlobal.uDetail(v.Local.iFor)!Dev_Code," ",2,V.uGlobal.uDetail(v.Local.iFor)!Dev_Code)
+'			F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.EndIf
+
+
+' ============
+		' Profit Center
+		F.Intrinsic.String.RPad(V.Local.sRet(0)," ",20,V.Local.sVal)
+		V.uGlobal.uDetail(v.Local.iFor)!SAP_Prof_Cntr.Set(V.Local.sVal)
+
+		' post date
+'		F.Intrinsic.String.Format(V.uGlobal.uGlDtl(v.Local.iFor)!Post_Date,"MMDDYYYY",V.Local.sVal)
+'		V.uGlobal.uDetail(v.Local.iFor)!EffDate.Set(V.Local.sVal)
+
+		' Amount
+		F.Intrinsic.String.Format(V.uGlobal.uGlDtl(v.Local.iFor)!Amount,"0.00",V.Local.sVal)
+		F.Intrinsic.String.RPad(V.Local.sVal," ",20,V.uGlobal.uDetail(v.Local.iFor)!AmtString)
+		V.uGlobal.uDetail(v.Local.iFor)!Amount.Set(V.uGlobal.uGlDtl(v.Local.iFor)!Amount)
+
+		' Service Code
+		V.Local.sVal.Set("")
+		F.Intrinsic.String.RPad(V.Local.sVal," ",4,V.uGlobal.uDetail(v.Local.iFor)!Srvc_Code)
+		F.Intrinsic.String.RPad(V.Local.sVal.Trim," ",22,V.uGlobal.uDetail(v.Local.iFor)!Filler1)
+		F.Intrinsic.String.RPad(V.Local.sVal.Trim," ",1,V.uGlobal.uDetail(v.Local.iFor)!Filler2)
+
+'vvvvvvvvvvvvvvvv==for report only==vvvvvvvvvvvvv
+
+		' Debit/Credit
+		F.Intrinsic.Control.If(V.uGlobal.uDetail(v.Local.iFor)!Amount,<,0)
+			V.uGlobal.uDetail(v.Local.iFor)!DbCr.Set("D")
+		F.Intrinsic.Control.Else
+			V.uGlobal.uDetail(v.Local.iFor)!DbCr.Set("C")
+		F.Intrinsic.Control.EndIf
+
+		' Tran Type
+'		V.uGlobal.uDetail(v.Local.iFor)!TransType.Set(V.uGlobal.uGlDtl(v.Local.iFor)!Tran_Type)
+
+'^^^^^^^^^== for report only ==^^^^^^^^^^^
+
+'	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Next(V.Local.iFor)
+
+' ============
+
+' Journal ID, Service Code, Filler1, CoCode, Filler2, effdate are constant
+F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uDetail!JrnlId,"TB-SGI9404")
+F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uDetail!Co_Code,"9404")
+F.Intrinsic.String.Format(V.Screen.SS_Form1!dtpEnd.Value,"MMDDYYYY",V.Local.sVal)
+F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uDetail!EffDate,V.Local.sVal)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("detailFile_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_TB_Load_File.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.detailFile.End
+
+Program.Sub.controlFile.Start
+F.Intrinsic.Control.SetErrorHandler("controlFile_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.fVal.Declare(Float)
+V.Local.sVal.Declare(String)
+V.Local.iFor.Declare(Long)
+V.Local.sComp.Declare(String)
+V.Local.iTotalRec.Declare(Long)
+
+
+' Interface name
+V.uGlobal.uControl!intName.Set("SGI9404")
+
+' total debits
+V.Local.fVal.Set(0)
+V.Local.sComp.Set(">::0")
+F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uDetail!Amount,V.Local.sComp,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.Control.For(V.Local.iFor,V.Local.sRet.LBound,V.Local.sRet.UBound,1)
+		F.Intrinsic.Math.Add(V.Local.fVal,V.uGlobal.uDetail(v.Local.sRet(v.Local.iFor))!Amount,V.Local.fVal)
+	F.Intrinsic.Control.Next(V.Local.iFor)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Format(V.Local.fVal,"0.00",V.Local.sVal)
+F.Intrinsic.String.RPad(V.Local.sVal," ",20,V.Local.sVal)
+V.uGlobal.uControl!DbString.Set(V.Local.sVal)
+
+'total credits
+V.Local.fVal.Set(0)
+V.Local.sComp.Set("<::0")
+F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uDetail!Amount,V.Local.sComp,V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+	F.Intrinsic.Control.For(V.Local.iFor,V.Local.sRet.LBound,V.Local.sRet.UBound,1)
+		F.Intrinsic.Math.Add(V.Local.fVal,V.uGlobal.uDetail(v.Local.sRet(v.Local.iFor))!Amount,V.Local.fVal)
+	F.Intrinsic.Control.Next(V.Local.iFor)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Math.Mult(V.Local.fVal,-1,V.Local.fVal)
+F.Intrinsic.String.Format(V.Local.fVal,"0.00",V.Local.sVal)
+F.Intrinsic.String.RPad(V.Local.sVal," ",20,V.Local.sVal)
+V.uGlobal.uControl!CrString.Set(V.Local.sVal)
+
+' number of transactions
+F.Intrinsic.Math.Add(V.uGlobal.uDetail!Amount.UBound,1,V.Local.iTotalRec)
+F.Intrinsic.String.RPad(V.Local.iTotalRec," ",10,V.Local.sVal)
+V.uGlobal.uControl!TrString.Set(V.Local.sVal)
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("controlFile_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_TB_Load_File.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.controlFile.End
+
+Program.Sub.writeFile.Start
+
+'JournalID(10)--userdefined(usuallyTB-xxxxxxx)???**TOBEDETERMINED**
+'EffectiveDate(8)(formatMMDDCCYY)�GL_Detail.PostDate
+'SAPProfitCenter(20)�SPI_PROFIT_CNTR
+'SAPCostCenter(20)--**FIELDDefinitionbelow
+'SAPInternalOrder(20)--**FIELDDefinitionbelow
+'SAPAccountNumber(20)--SPI_GL_ACCT
+'DevelopmentCode(2)--**FIELDDefinitionbelow
+'TradingPartner(4)--**FIELDDefinitionbelow
+'SAPPartnerProfitCtr(10)--**FIELDDefinitionbelow
+'Description(35)--DESCRIPTION
+'Amount(20)(format0.00;Negativehandledwitha(-)infront)�GL_Detail.Amount
+'Servicecode(4)�leaveBlank
+'Filler(22)�leaveblank
+'CoCode(4)--SpiridonCompanyCode-hardcodedto9404
+'Filler(1)�leaveblank
+
+
+'InterfaceName(7)--Tobeprovidedtoeachgroup???-**TOBEDETERMINED**
+'TotalDebits(20)--validnumeric
+'TotalCredits(20)--validnumeric(positivenumber)
+'NumberofTransactions(10)-validnumeric
+
+
+F.Intrinsic.Control.SetErrorHandler("writeFile_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sStVal.Declare(String)
+V.Local.iFor.Declare(Long)
+V.Local.sFile.Declare(String)
+
+
+F.Intrinsic.Control.If(V.Args.TYPE,=,"DETAIL")
+	f.Intrinsic.Variable.udtToString(v.uGlobal.uDetail,"JrnlId*!*EffDate*!*SAP_Prof_Cntr*!*SAP_Cost_Cntr*!*SAP_Int_Order*!*SAP_Acct_No*!*Dev_Code*!*Trading_Partner*!*SAP_PPC*!*Description*!*AmtString*!*Srvc_Code*!*Filler1*!*Co_Code*!*Filler2",v.Ambient.NewLine,"",v.Local.sStVal)
+	F.Intrinsic.File.String2File(V.Args.FILE,V.Local.sStVal)
+
+F.Intrinsic.Control.Else
+'Function.Intrinsic.Variable.UDTToString(UDT name, elements as string, position delimiter, element delimiter, return as string)
+	f.Intrinsic.Variable.udtToString(v.uGlobal.uControl,"IntName*!*DbString*!*CrString*!*TrString",v.Ambient.NewLine,"",v.Local.sStVal)
+	F.Intrinsic.File.String2File(V.Args.FILE,V.Local.sStVal)
+
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("writeFile_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_TB_Load_File.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.writeFile.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_TB_Load_File$}$JCT$}$8/6/2013$}$False
+${$2$}$$}$$}$1$}$4$}$GSS_SAP_Acct_Map.sql$}$8/6/2013 12:01:56 PM$}$table for SPI/Mozard account information
+${$2$}$$}$$}$0$}$2$}$GCG_SAP_Acct_Map.gas$}$8/6/2013 11:59:50 AM$}$SPI/Mozrd account maintenance script
+${$3$}$0$}$$}$-1$}$-1$}$$}$1/1/1900$}$For Siemens, Quote 4707
+Custom Hook/Menu Item
+
+1. Create a Maintenance program that allows Create, Modify and Delete functionality for assigning specific SAP required info in relation to the GSS GL Account number
+
+2. There are 2 files to be created by GSS. (Control and Detail).  Enter a date range, and the script will read all transactions from the GL_Detail where the Post_Date is within that date range
+
+3. summary report will be an excel sheet that gives detail summary for tansactions
+${$4$}$0$}$$}$0$}$-1$}$TRT$}$8/13/2013 2:35:16 PM$}$Edit to  cmdRPT_Click
+- Added a tick mark (') before the SAP Account Number in uDetail Udt.  As being written to excel the leading zeroes were being dropped, having a tick mark prevents the drop.
+${$4$}$0$}$$}$2$}$-1$}$TRT$}$8/13/2013 2:40:01 PM$}$
+- Added a tick mark (') before the SAP Account Number in uDetail Udt.  As being written to excel the leading zeroes were being dropped, having a tick mark prevents the drop.
+Program.Sub.Comments.End
+
